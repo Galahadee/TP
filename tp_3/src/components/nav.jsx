@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styles from "../assets/styles/navbar.css";
+import "../assets/styles/navbar.css";
 
 const Nav = (props) => {
 	const checkIsactive = ({ isActive }) => {

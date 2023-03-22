@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Users from "../../data/users.json";
-import styles from "../assets/styles/homepage.css";
+import "../assets/styles/homepage.css";
 
 const Homepage = () => {
 	const [randomUser, setRandomUser] = useState("");
