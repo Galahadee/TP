@@ -1,32 +1,33 @@
 import { NavLink } from "react-router-dom";
+import "../assets/styles/navbar.css";
 
 const Nav = (props) => {
-  const checkIsactive = ({ isActive }) => {
-    return {
-      display: "block",
-      margin: "1rem 0",
-      color: isActive ? "orange" : "",
-    };
-  };
+	const checkIsactive = ({ isActive }) => {
+		return {
+			display: "block",
+			margin: "1rem 0",
+			color: isActive ? "#bc8034" : "white",
+		};
+	};
 
-  return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink style={checkIsactive} to="/page1">
-            page 1
-          </NavLink>
-        </li>
-        <li>
-          <NavLink style={checkIsactive} to="/page2">
-            page 2
-          </NavLink>
-        </li>
-      </ul>
+	return (
+		<nav className="navbar">
+			<ul>
+				<li>
+					<NavLink style={checkIsactive} to="/">
+						Home
+					</NavLink>
+				</li>
+				<li>
+					<NavLink style={checkIsactive} to="/list">
+						List
+					</NavLink>
+				</li>
+			</ul>
 
-      {props.children}
-    </nav>
-  );
+			{props.children}
+		</nav>
+	);
 };
 
 export default Nav;
