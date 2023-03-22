@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Navigate, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Nav from "./components/nav";
+// import Nav from "./components/nav";
 import Homepage from "./components/homepage";
 import List from "./components/list";
 
@@ -12,7 +12,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Nav></Nav>
+			{/* <Nav></Nav> */}
 			<hr />
 			<Routes>
 				<Route path="/homepage" element={<Homepage />} />
