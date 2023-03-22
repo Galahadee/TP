@@ -9,7 +9,6 @@ function List(params){
         <div>
             {array.length>0&&
             array.map((user)=>
-                // <ListItem key={e.id} info={e}/>
                 <ListItem key={user.id} user={user}/>)}
         </div>
     )
