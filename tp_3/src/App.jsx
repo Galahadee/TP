@@ -1,24 +1,27 @@
+import { useDispatch, useSelector } from "react-redux";
+import List from "./components/list"
 import { useState } from 'react'
 import { Navigate, Routes, Route } from "react-router-dom";
 import './App.css'
 import Nav from "./components/nav"
 import Homepage from "./components/homepage";
-import List from "./components/list";
 
 
 function App() {
 
-  return (
-    <div className="App">
-      <Nav>
-      </Nav>
-      <hr />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/list" element={<List />} />
-      </Routes>
-    </div>
-  )
+    const users  = useSelector(state => state.listUsers);
+
+    return (
+        <div className="App">
+            <Nav>
+            </Nav>
+            <hr />
+            <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/list" element={<List info={users} />} />
+            </Routes>
+        </div>
+    )
 }
 
 export default App
