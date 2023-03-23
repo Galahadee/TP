@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import listReducer from "./reducerList";
+import reducerCurrentUser from './reducerCurrentUser';
 
-// console.log(listReducer)
 const store = combineReducers({
-  listUsers : listReducer
+  listUsers : listReducer,
+  currentUser : reducerCurrentUser
 });
-
 
 export default store;
 

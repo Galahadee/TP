@@ -23,6 +23,11 @@ const Nav = (props) => {
 						List
 					</NavLink>
 				</li>
+				<li>
+					<NavLink to="/login">
+						Deconnexion
+					</NavLink>
+				</li>
 			</ul>
 
 			{props.children}

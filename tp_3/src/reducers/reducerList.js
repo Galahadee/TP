@@ -1,5 +1,3 @@
-// import { ADD_DRAGON,DELETE_DRAGON } from "../constants/dragon";
-// import { ORDER_CHANGE } from "../constants/orderChange";
 import Users from "../../data/users.json";
 
 
@@ -11,6 +9,7 @@ let reducerList = (state = stateInit, action = {}) => {
         default:
             return state;
     }
+    
     return state
 }
 
