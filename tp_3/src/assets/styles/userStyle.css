@@ -36,6 +36,18 @@
 	color: #f3f7f0;
 }
 
+.marketing {
+	background-color: #bc8034;
+}
+
+.client {
+	background-color: #f2545b;
+}
+
+.technique {
+	background-color: #2667ff;
+}
+
 .userInfos {
 	width: 250px;
 	display: flex;
@@ -50,4 +62,19 @@
 
 .button:hover {
 	background-color: #f2545b;
+}
+
+.listContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 80px;
+}
+
+.input {
+	margin: 30px 20px;
+	width: 200px;
+	height: 40px;
+	border-radius: 5px;
+	background-color: #f3f7f0;
+	color: #19323c;
 }

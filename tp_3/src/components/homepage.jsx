@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import Users from "../../data/users.json";
-import "../assets/styles/homepage.css";
+import "../assets/styles/userStyle.css";
 
 const Homepage = () => {
 	const currentUser=localStorage.getItem("currentUser");
@@ -11,7 +11,7 @@ const Homepage = () => {
 
 	const [randomUser, setRandomUser] = useState("");
 	const date = new Date(randomUser.birthdate);
-	const dateAnniv =
+	const birthday =
 		date.getDate() + " " + date.toLocaleString("default", { month: "long" });
 
 	useEffect(() => {
@@ -37,13 +37,20 @@ const Homepage = () => {
 				<p>Avez-vous dis bonjour à : </p>
 				<div className="card">
 					<img src={randomUser.photo} alt="Photo collaborateur" />
-					<p className="category">{randomUser.category}</p>
+					{/* On peut pas utiliser des classes variables sans scss ? obligé de faire ça */}
+					{randomUser.category === "Client" ? (
+						<p className="category client">{randomUser.category}</p>
+					) : randomUser.category === "Technique" ? (
+						<p className="category technique">{randomUser.category}</p>
+					) : (
+						<p className="category marketing">{randomUser.category}</p>
+					)}
 					<div className="userInfos">
 						<p>{randomUser.firstname + " " + randomUser.lastname}</p>
 						<p>{randomUser.city + ", " + randomUser.country}</p>
 						<p>{randomUser.email}</p>
 						<p>{randomUser.phone}</p>
-						<p>Anniversaire : {dateAnniv}</p>
+						<p>Anniversaire : {birthday}</p>
 					</div>
 				</div>
 				<button className="button" onClick={handleClick}>

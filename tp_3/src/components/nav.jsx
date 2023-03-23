@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "../assets/styles/navbar.css";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { deconnexion } from "../actions/actions-types";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Nav = (props) => {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	let currentUser = localStorage.getItem('currentUser');
+	let currentUser = localStorage.getItem("currentUser");
 	currentUser = JSON.parse(currentUser);
 
 	function handleClick() {
@@ -36,17 +36,13 @@ const Nav = (props) => {
 						List
 					</NavLink>
 				</li>
-
 				<li>
-					{currentUser &&
+					{currentUser && (
 						<div>
 							<img src={currentUser.photo} alt="Photo" />
-							<button onClick={handleClick}>
-								Déconnexion
-							</button>
+							<button onClick={handleClick}>Déconnexion</button>
 						</div>
-
-					}
+					)}
 				</li>
 			</ul>
 			{props.children}
