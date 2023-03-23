@@ -24,7 +24,6 @@ const Nav = (props) => {
 					</NavLink>
 				</li>
 			</ul>
-
 			{props.children}
 		</nav>
 	);
