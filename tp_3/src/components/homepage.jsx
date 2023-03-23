@@ -13,7 +13,6 @@ const Homepage = () => {
 	const date = new Date(randomUser.birthdate);
 	const birthday =
 		date.getDate() + " " + date.toLocaleString("default", { month: "long" });
-
 	useEffect(() => {
 		const randomNumber = Math.floor(Math.random() * 42);
 		setRandomUser(Users[randomNumber]);

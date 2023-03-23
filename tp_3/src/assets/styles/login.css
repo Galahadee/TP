@@ -1,0 +1,26 @@
+:root{
+    font-size: 20px;
+}
+
+label{
+    padding-right: 10px;
+    text-align: end;
+}
+
+form div{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* width: 80vw; */
+}
+
+form{
+    padding: 10px;
+}
+
+form button{
+    margin-top: 20px;
+    color: white;
+    background: #E1454B;
+    border-radius: 0px;
+}
