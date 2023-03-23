@@ -9,8 +9,6 @@ function loginpage(params) {
     const [password,setPassword]=useState('');
     const navigate = useNavigate();
     const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('test')
         const payload={
             email:email,
             password:password
@@ -19,13 +17,12 @@ function loginpage(params) {
         navigate("/")
     }
     
-    const currentUser=sessionStorage.getItem("currentUser");
+    const currentUser=localStorage.getItem("currentUser");
     
     if (currentUser) {
         dispatch(deconnexion())
     }
 
-    console.log(currentUser)
     return (
         <div>
             <h1>Connexion</h1>

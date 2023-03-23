@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "../assets/styles/navbar.css";
+import { useDispatch } from 'react-redux';
+import { deconnexion } from "../actions/actions-types";
+import { useNavigate } from "react-router-dom";
 
 const Nav = (props) => {
 	const checkIsactive = ({ isActive }) => {
@@ -9,6 +12,16 @@ const Nav = (props) => {
 			color: isActive ? "#bc8034" : "white",
 		};
 	};
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	let currentUser = localStorage.getItem('currentUser');
+	currentUser = JSON.parse(currentUser);
+
+	function handleClick() {
+		dispatch(deconnexion());
+		navigate("/login");
+	}
 
 	return (
 		<nav className="navbar">
@@ -23,13 +36,19 @@ const Nav = (props) => {
 						List
 					</NavLink>
 				</li>
+
 				<li>
-					<NavLink to="/login">
-						Deconnexion
-					</NavLink>
+					{currentUser &&
+						<div>
+							<img src={currentUser.photo} alt="Photo" />
+							<button onClick={handleClick}>
+								Déconnexion
+							</button>
+						</div>
+
+					}
 				</li>
 			</ul>
-
 			{props.children}
 		</nav>
 	);

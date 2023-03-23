@@ -11,6 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "bcryptjs": "^2.4.3",
+    "bcryptjs-react": "^2.4.6",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
