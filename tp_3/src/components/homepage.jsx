@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import Users from "../../data/users.json";
 import "../assets/styles/userStyle.css";
 
 const Homepage = () => {
+	const currentUser=localStorage.getItem("currentUser");
+	// console.log(JSON.parse(currentUser))
+	if (!currentUser) {
+		return <Navigate to="/login" replace />;
+	}
+
 	const [randomUser, setRandomUser] = useState("");
 	const date = new Date(randomUser.birthdate);
 	const birthday =
