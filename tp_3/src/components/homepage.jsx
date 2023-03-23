@@ -5,7 +5,6 @@ import "../assets/styles/homepage.css";
 
 const Homepage = () => {
 	const currentUser=localStorage.getItem("currentUser");
-	// console.log(JSON.parse(currentUser))
 	if (!currentUser) {
 		return <Navigate to="/login" replace />;
 	}

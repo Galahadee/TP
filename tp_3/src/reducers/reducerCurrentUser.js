@@ -6,8 +6,9 @@ let stateInit = {};
 
 function searchUserByEmail(email, password) {
     const currUser = Users.find(user => email == user.email)
-    const test = bcrypt.hashSync(password,10);
-    console.log(test)
+    const salt = bcrypt.genSaltSync(10)
+    const test = bcrypt.compareSync('password', salt);
+    // console.log(test)
     if (currUser) {
         return currUser
     } else {
