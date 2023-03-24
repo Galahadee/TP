@@ -11,7 +11,9 @@ const ListItem = (info) => {
 	const firstName = info.user.firstname;
 	const lastName = info.user.lastname;
 	const birthdate = info.user.birthdate;
-	const isAdmin = localStorage.getItem("currentUser");
+	let currUser = localStorage.getItem("currentUser");
+	currUser = JSON.parse(currUser);
+	console.log();
 	const date = new Date(birthdate);
 	const birthday =
 		date.getDate() + " " + date.toLocaleString("default", { month: "long" });
@@ -33,7 +35,7 @@ const ListItem = (info) => {
 				<p>{phone}</p>
 				<p>Anniversaire : {birthday}</p>
 			</div>
-			{isAdmin && (
+			{currUser.isAdmin && (
 				<div>
 					<button>Editer</button>
 					<button>Supprimer</button>

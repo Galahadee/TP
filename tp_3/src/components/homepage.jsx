@@ -4,7 +4,7 @@ import Users from "../../data/users.json";
 import "../assets/styles/userStyle.css";
 
 const Homepage = () => {
-	const currentUser=localStorage.getItem("currentUser");
+	const currentUser = localStorage.getItem("currentUser");
 	if (!currentUser) {
 		return <Navigate to="/login" replace />;
 	}
