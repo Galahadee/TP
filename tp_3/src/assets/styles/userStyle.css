@@ -1,5 +1,4 @@
-.card {
-	display: flex;
+.listContainer .card {
 	justify-content: space-between;
 	padding: 20px;
 	background-color: #f3f7f0;
@@ -8,6 +7,18 @@
 	border-radius: 5px;
 	width: 500px;
 	margin: auto;
+}
+
+
+.card div:first-child{
+	display: flex;
+}
+
+
+.card div:last-child{
+	padding: 10px;
+	display: flex;
+	justify-content: space-around;
 }
 
 .card img {

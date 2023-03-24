@@ -11,28 +11,38 @@ const ListItem = (info) => {
 	const firstName = info.user.firstname;
 	const lastName = info.user.lastname;
 	const birthdate = info.user.birthdate;
-
+	const isAdmin = localStorage.getItem('currentUser');
 	const date = new Date(birthdate);
 	const birthday =
 		date.getDate() + " " + date.toLocaleString("default", { month: "long" });
 
 	return (
 		<div className="card">
-			<img src={photo} alt="Photo collaborateur" />
-			{category === "Client" ? (
-				<p className="category client">{category}</p>
-			) : category === "Technique" ? (
-				<p className="category technique">{category}</p>
-			) : (
-				<p className="category marketing">{category}</p>
-			)}
-			<div className="userInfos">
-				<p>{lastName + " " + firstName}</p>
-				<p>{city + ", " + country}</p>
-				<p>{email}</p>
-				<p>{phone}</p>
-				<p>Anniversaire : {birthday}</p>
+			<div>
+				<img src={photo} alt="Photo collaborateur" />
+				{category === "Client" ? (
+					<p className="category client">{category}</p>
+				) : category === "Technique" ? (
+					<p className="category technique">{category}</p>
+				) : (
+					<p className="category marketing">{category}</p>
+				)}
+				<div className="userInfos">
+					<p>{lastName + " " + firstName}</p>
+					<p>{city + ", " + country}</p>
+					<p>{email}</p>
+					<p>{phone}</p>
+					<p>Anniversaire : {birthday}</p>
+				</div>
 			</div>
+
+			{isAdmin &&
+				<div>
+					<button>Editer</button>
+					<button>Supprimer</button>
+				</div>
+			}
+
 		</div>
 	);
 };
