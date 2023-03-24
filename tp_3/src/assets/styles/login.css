@@ -1,26 +1,26 @@
-:root{
-    font-size: 20px;
+:root {
+	font-size: 20px;
 }
 
-label{
-    padding-right: 10px;
-    text-align: end;
+label {
+	padding-right: 10px;
+	text-align: end;
 }
 
-form div{
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* width: 80vw; */
+form div {
+	padding: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
-form{
-    padding: 10px;
+form {
+	margin: auto;
+	padding: 10px;
 }
 
-form button{
-    margin-top: 20px;
-    color: white;
-    background: #E1454B;
-    border-radius: 0px;
+form button {
+	margin-top: 20px;
+	color: white;
+	background: #e1454b;
+	border-radius: 0px;
 }
