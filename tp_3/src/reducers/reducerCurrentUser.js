@@ -2,7 +2,7 @@ import Users from "../../data/users.json";
 import { CONNEXION, DECONNEXION,MODIF_USER } from "../constants/actions";
 import bcrypt from "bcryptjs-react";
 
-let stateInit = {};
+let stateInit = {type:"",message:""};
 
 function searchUserByEmail(email, password) {
     const currUser = Users.find(user => email == user.email)
@@ -34,13 +34,17 @@ let reducerCurrentUser = (state = stateInit, action = {}) => {
             const currUser = searchUserByEmail(payload.email, payload.password)
             if (currUser) {
                 localStorage.setItem('currentUser', JSON.stringify(currUser));
-                return {...state,currUser}
+                return {...state,type:"success",message:"Bienvenue sur l'Intranet"}
             }
 
-            return state;
+            const e = {...state,type:"error",message:"Mot de passe ou email invalide."};
+            console.log(e);
+            return e;
         case DECONNEXION:
             localStorage.clear();
-            return state;
+        
+            
+            return {...state,type:"success",message:"Vous avez été déconnecté"};
         case MODIF_USER:
             // const currentUser=searchUserById(payload.id);
             localStorage.removeItem("currentUser");
@@ -49,7 +53,7 @@ let reducerCurrentUser = (state = stateInit, action = {}) => {
             test = JSON.parse(test)
             // console.log("MODIFICATION")
             // console.log(test)
-            return state;
+            return {...state,type:success,message:"Les informations de votre compte ont été modifié"};
         default:
             return state;
     }
