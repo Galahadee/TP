@@ -15,8 +15,8 @@ function App() {
 		<div className="App">
 			<Nav/>
 			<Routes>
-				<Route path="/login" element={<Loginpage/>}/>
-				<Route path="/" element={<Homepage />} />
+				<Route path="*" element={<Loginpage/>}/>
+				<Route path="/accueil" element={<Homepage />} />
 				<Route path="/list" element={<List info={users} />} />
 				<Route path="/profil_modification" element={<ModifProfil/>} />
 			</Routes>

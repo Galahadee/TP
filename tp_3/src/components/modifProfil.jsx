@@ -2,15 +2,18 @@ import React, { useState } from 'react'
 import { modifUser } from "../actions/actions-types";
 import { useDispatch } from 'react-redux';
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Message from "./message";
 
 function modifProfil() {
     let currentUser = localStorage.getItem("currentUser");
-    currentUser = JSON.parse(currentUser);
 
 
     if (!currentUser) {
-		return <Navigate to="/login" replace />;
-	}
+        return <Navigate to="/login" replace />;
+    }
+
+    currentUser = JSON.parse(currentUser);
 
     const dispatch = useDispatch();
     const [email, setEmail] = useState(currentUser.email);
@@ -25,20 +28,12 @@ function modifProfil() {
     const [birthdate, setBirthdate] = useState(currentUser.birthdate);
     const [photo, setPhoto] = useState(currentUser.photo);
     const [firstname, setFirstname] = useState(currentUser.firstname);
+    const messageUser = useSelector(state => state.currentUser);
 
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!birthdate || !photo || !firstname || !phone || !email || !country || !lastname || !category || !gender || !city) {
-            return console.error("Missing value")
-        }
-        if (password > 0 && password < 8) {
-                    if (password != confirmation) {
-            return console.error("Password and confirmation are not the same")
-        }
-            return console.error("Password not enought long")
-        }
-
+        console.log(password)
 
         const obj = {
             id: currentUser.id,
@@ -46,7 +41,7 @@ function modifProfil() {
             firstname: firstname,
             lastname: lastname,
             email: email,
-            password: currentUser.password,
+            password: password,
             phone: phone,
             birthdate: birthdate,
             city: city,
@@ -55,12 +50,13 @@ function modifProfil() {
             photo: photo
         }
 
-        dispatch(modifUser(obj))
+        dispatch(modifUser({user:obj,confirmation:confirmation}))
     }
-
     return (
         <div>
+            {messageUser.message && <Message type={messageUser.type} message={messageUser.message} />}
             <h1>Modifier mon profil</h1>
+
             <form action="" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="gender">* Civilité :</label>

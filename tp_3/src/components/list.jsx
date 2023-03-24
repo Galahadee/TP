@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import ListItem from "./listItem";
 import "../assets/styles/userStyle.css";
+import { Navigate } from "react-router-dom";
 
 function List(params) {
+
+	const currentUser = localStorage.getItem("currentUser");
+	if (!currentUser) {
+		return <Navigate to="/login" replace />;
+	}
+
 	const array = params.info;
 	const [search, setSearch] = useState("");
 	const [searchType, setSearchType] = useState("");

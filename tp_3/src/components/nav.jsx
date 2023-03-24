@@ -20,14 +20,14 @@ const Nav = (props) => {
 
 	function handleClick() {
 		dispatch(deconnexion());
-		navigate("/login");
+		navigate("/");
 	}
 
 	return (
 		<nav className="navbar">
 			<ul>
 				<li className="navlink">
-					<NavLink style={checkIsactive} to="/">
+					<NavLink style={checkIsactive} to="/accueil">
 						Home
 					</NavLink>
 				</li>
@@ -39,7 +39,7 @@ const Nav = (props) => {
 				{currentUser && (
 					<div className="buttons">
 						<li>
-							<a href="/profil_modification">
+							<a href="/profil_modification">LUCSKO 
 								<img src={currentUser.photo} alt="Photo" />
 							</a>
 						</li>

@@ -42,18 +42,30 @@ let reducerCurrentUser = (state = stateInit, action = {}) => {
             return e;
         case DECONNEXION:
             localStorage.clear();
-        
-            
             return {...state,type:"success",message:"Vous avez été déconnecté"};
         case MODIF_USER:
             // const currentUser=searchUserById(payload.id);
+            console.log(payload.user.password)
+            const obj=payload.user
+            if (!obj.birthdate || !obj.photo || !obj.firstname || !obj.phone || !obj.email || !obj.country || !obj.lastname || !obj.category || !obj.gender || !obj.city) {
+                return console.error("Missing value")
+            }
+            if (obj.password.length > 0 && obj.password.length < 8) {
+
+                if (obj.password != payload.confirmation) {
+                    console.log("test")
+                    return {...state,type:"error",message:"Le champs mot de passe et confirmation ne sont pas similaire"};
+                }
+                return {...state,type:"error",message:"Le mot de passe n'est pas assez long"}
+            }
+
             localStorage.removeItem("currentUser");
             localStorage.setItem('currentUser',JSON.stringify(payload))
-            let test = localStorage.getItem('currentUser')
-            test = JSON.parse(test)
-            // console.log("MODIFICATION")
-            // console.log(test)
-            return {...state,type:success,message:"Les informations de votre compte ont été modifié"};
+
+            const test = localStorage.getItem('currentUser');
+            console.log(test)
+
+            return {...state,type:"success",message:"Les informations de votre compte ont été modifié"};
         default:
             return state;
     }

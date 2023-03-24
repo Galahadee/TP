@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 function loginpage(params) {
     const messageUser = useSelector(state => state.currentUser);
+
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ function loginpage(params) {
         dispatch(connexion(payload));
 
         if(messageUser.type=='success'){
-            navigate("/");
+            navigate("/accueil");
         }
 	};
 
@@ -36,7 +37,7 @@ function loginpage(params) {
 		<div>
 			<h1>Connexion</h1>
 			<hr />
-            {messageUser&&<Message type={messageUser.type} message={messageUser.message}/>}
+            {messageUser.message&&<Message type={messageUser.type} message={messageUser.message}/>}
 			<div>
 				<p>
 					Pour vous connecter à l'intranet, entrez votre identifiant et mot de
@@ -46,7 +47,7 @@ function loginpage(params) {
 					<div>
 						<label htmlFor="email">Email :</label>
 						<input
-							type="test"
+							type="text"
 							name="email"
 							id="email"
 							onChange={(e) => setEmail(e.target.value)}
@@ -54,8 +55,7 @@ function loginpage(params) {
 					</div>
 					<div>
 						<label htmlFor="password">Mot de passe :</label>
-						<input
-							type="password"
+						<input type="password"
 							name="password"
 							id="password"
 							onChange={(e) => setPassword(e.target.value)}

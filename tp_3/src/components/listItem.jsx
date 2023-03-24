@@ -1,7 +1,9 @@
 import React from "react";
 import "../assets/styles/userStyle.css";
+import { Navigate } from "react-router-dom";
 
 const ListItem = (info) => {
+
 	const email = info.user.email;
 	const phone = info.user.phone;
 	const category = info.user.category;
@@ -13,7 +15,6 @@ const ListItem = (info) => {
 	const birthdate = info.user.birthdate;
 	let currUser = localStorage.getItem("currentUser");
 	currUser = JSON.parse(currUser);
-	console.log();
 	const date = new Date(birthdate);
 	const birthday =
 		date.getDate() + " " + date.toLocaleString("default", { month: "long" });
