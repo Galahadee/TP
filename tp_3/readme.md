@@ -1,17 +1,16 @@
 Simon:
-
-TO DO:
-Création page login
-
-Done :
 Création page List
+Routers
+Gestion de l'utilisateur en cours
+Page de modification des informations
+Page de connexion
+Système de déconnexion
+Affichage des boutons admin et message d'informations
 
 Edouard :
-TO DO:
-filter
-Done :
 Création page Homepage
 Navbar
 CSS nav
 CSS homepage
 CSS list
+filter

@@ -39,7 +39,7 @@ const Nav = (props) => {
 				{currentUser && (
 					<div className="buttons">
 						<li>
-							<a href="/profil_modification">LUCSKO 
+							<a href="/profil_modification"> 
 								<img src={currentUser.photo} alt="Photo" />
 							</a>
 						</li>
