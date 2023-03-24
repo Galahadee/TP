@@ -11,10 +11,10 @@ import ModifProfil from "./components/modifProfil";
 function App() {
 	const users = useSelector((state) => state.listUsers);
 
+	// TEST	
 	return (
 		<div className="App">
 			<Nav/>
-			<hr />
 			<Routes>
 				<Route path="/login" element={<Loginpage/>}/>
 				<Route path="/" element={<Homepage />} />

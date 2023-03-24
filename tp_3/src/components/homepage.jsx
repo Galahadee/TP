@@ -5,7 +5,6 @@ import "../assets/styles/userStyle.css";
 
 const Homepage = () => {
 	const currentUser=localStorage.getItem("currentUser");
-	// console.log(JSON.parse(currentUser))
 	if (!currentUser) {
 		return <Navigate to="/login" replace />;
 	}
@@ -14,7 +13,6 @@ const Homepage = () => {
 	const date = new Date(randomUser.birthdate);
 	const birthday =
 		date.getDate() + " " + date.toLocaleString("default", { month: "long" });
-
 	useEffect(() => {
 		const randomNumber = Math.floor(Math.random() * 42);
 		setRandomUser(Users[randomNumber]);

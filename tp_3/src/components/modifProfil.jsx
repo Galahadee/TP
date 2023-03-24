@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import { modifUser } from "../actions/actions-types";
 import { useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function modifProfil() {
     let currentUser = localStorage.getItem("currentUser");
     currentUser = JSON.parse(currentUser);
+
+
+    if (!currentUser) {
+		return <Navigate to="/login" replace />;
+	}
 
     const dispatch = useDispatch();
     const [email, setEmail] = useState(currentUser.email);
