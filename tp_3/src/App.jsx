@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import List from "./components/list";
 import { useState } from "react";
-import { Navigate, Routes, Route } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/nav";
 import Homepage from "./components/homepage";
@@ -11,7 +11,6 @@ import ModifProfil from "./components/modifProfil";
 function App() {
 	const users = useSelector((state) => state.listUsers);
 
-	// TEST	
 	return (
 		<div className="App">
 			<Nav/>
