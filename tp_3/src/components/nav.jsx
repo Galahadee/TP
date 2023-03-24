@@ -44,7 +44,7 @@ const Nav = (props) => {
 							</a>
 						</li>
 						<li className="navlink">
-							<button onClick={handleClick}>Déconnexion</button>
+							<button onClick={handleClick}>Déconnexion <i class="las la-sign-in-alt"></i></button>
 						</li>
 					</div>
 				)}
