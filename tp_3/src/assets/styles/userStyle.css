@@ -1,5 +1,4 @@
 .card {
-	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
 	background-color: #f3f7f0;
@@ -8,6 +7,16 @@
 	border-radius: 5px;
 	width: 250px;
 	margin: auto;
+}
+
+.card div:first-child {
+	display: flex;
+}
+
+.card div:last-child {
+	padding: 10px;
+	display: flex;
+	justify-content: space-around;
 }
 
 .card img {
@@ -98,13 +107,12 @@ label {
 @media screen and (min-width: 768px) {
 	.card {
 		flex-direction: row;
-		width: 500px;
 		padding: 20px;
 	}
 
 	.category {
-		bottom: 40px;
-		left: 290px;
+		bottom: 210px;
+		left: 150px;
 	}
 
 	.userInfos {

@@ -3,19 +3,27 @@ import { connexion, deconnexion } from "../actions/actions-types";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "../assets/styles/login.css";
+import Message from "./message";
+import { useSelector } from "react-redux";
 
 function loginpage(params) {
+    const messageUser = useSelector(state => state.currentUser);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const navigate = useNavigate();
 	const handleSubmit = (event) => {
+        event.preventDefault();
 		const payload = {
 			email: email,
 			password: password,
 		};
-		dispatch(connexion(payload));
-		navigate("/");
+		
+        dispatch(connexion(payload));
+
+        if(messageUser.type=='success'){
+            navigate("/");
+        }
 	};
 
 	const currentUser = localStorage.getItem("currentUser");
@@ -28,6 +36,7 @@ function loginpage(params) {
 		<div>
 			<h1>Connexion</h1>
 			<hr />
+            {messageUser&&<Message type={messageUser.type} message={messageUser.message}/>}
 			<div>
 				<p>
 					Pour vous connecter à l'intranet, entrez votre identifiant et mot de

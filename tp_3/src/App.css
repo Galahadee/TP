@@ -40,3 +40,19 @@
 .read-the-docs {
 	color: #888;
 }
+
+.error{
+	background-color: orangered;
+	padding: 5px;
+	border-radius: 2px;
+}
+
+.error p, .success p{
+	margin: 0px;
+}
+
+.success{
+	background-color: greenyellow;
+	padding: 5px;
+	border-radius: 2px;
+}
