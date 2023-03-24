@@ -26,24 +26,28 @@ const Nav = (props) => {
 	return (
 		<nav className="navbar">
 			<ul>
-				<li>
+				<li className="navlink">
 					<NavLink style={checkIsactive} to="/">
 						Home
 					</NavLink>
 				</li>
-				<li>
+				<li className="navlink">
 					<NavLink style={checkIsactive} to="/list">
 						List
 					</NavLink>
 				</li>
-				<li>
-					{currentUser && (
-						<div>
-							<img src={currentUser.photo} alt="Photo" />
+				{currentUser && (
+					<div className="buttons">
+						<li>
+							<a href="/profil_modification">
+								<img src={currentUser.photo} alt="Photo" />
+							</a>
+						</li>
+						<li className="navlink">
 							<button onClick={handleClick}>Déconnexion</button>
-						</div>
-					)}
-				</li>
+						</li>
+					</div>
+				)}
 			</ul>
 			{props.children}
 		</nav>

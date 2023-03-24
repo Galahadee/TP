@@ -56,12 +56,14 @@
 }
 
 .button {
+	margin: auto;
 	margin-top: 10px;
 	background-color: #a93f55;
+	border: none;
 }
 
 .button:hover {
-	background-color: #f2545b;
+	background-color: #b4242b;
 }
 
 .listContainer {
